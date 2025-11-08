@@ -1,0 +1,68 @@
+<div class="container py-5">
+  <div *ngIf="loading" class="text-center py-5">
+    <div class="spinner-border text-accent" role="status">
+      <span class="visually-hidden">Carregando...</span>
+    </div>
+  </div>
+
+  <div *ngIf="error && !loading" class="alert alert-danger text-center">
+    {{ error }}
+    <a routerLink="/" class="btn btn-accent ms-3">Voltar para Home</a>
+  </div>
+
+  <div *ngIf="!loading && !error && product">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="product-image-container bg-white p-4 rounded">
+          <img [src]="product.image"
+               [alt]="product.title"
+               class="img-fluid product-image">
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="product-info">
+          <h1 class="text-white mb-3">{{ product.title }}</h1>
+
+          <div class="category-badge mb-3">
+            <span class="badge bg-dark text-white">{{ product.category }}</span>
+          </div>
+
+          <div class="rating mb-3">
+            <span class="text-accent">
+              ⭐ {{ product.rating.rate }} ({{ product.rating.count }} avaliações)
+            </span>
+          </div>
+
+          <div class="price-section mb-4">
+            <h2 class="text-accent">{{ product.price | currency:'BRL' }}</h2>
+          </div>
+
+          <div class="description mb-4">
+            <h4 class="text-white mb-2">Descrição</h4>
+            <p class="text-secondary">{{ product.description }}</p>
+          </div>
+
+          <div class="action-buttons">
+            <button *ngIf="!(isInCart$ | async)"
+                    class="btn btn-accent btn-lg w-100"
+                    (click)="addToCart()">
+              🛒 Adicionar ao Carrinho
+            </button>
+
+            <div *ngIf="isInCart$ | async" class="d-flex gap-2">
+              <button class="btn btn-outline-danger btn-lg flex-grow-1"
+                      (click)="removeFromCart()">
+                ❌ Remover do Carrinho
+              </button>
+              <button class="btn btn-outline-accent btn-lg"
+                      routerLink="/cart">
+                🛍️ Ver Carrinho
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

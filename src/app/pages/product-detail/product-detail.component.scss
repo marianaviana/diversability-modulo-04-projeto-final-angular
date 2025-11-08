@@ -1,0 +1,22 @@
+.product-image-container {
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .product-image {
+    max-height: 350px;
+    width: auto;
+    object-fit: contain;
+  }
+}
+
+.btn-outline-accent {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+
+  &:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-bg);
+  }
+}

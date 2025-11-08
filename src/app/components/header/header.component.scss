@@ -1,0 +1,22 @@
+.hover-accent {
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: var(--accent-color) !important;
+  }
+}
+
+.bg-accent {
+  background-color: var(--accent-color) !important;
+  color: var(--primary-bg);
+}
+
+.btn-outline-accent {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+
+  &:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-bg);
+  }
+}

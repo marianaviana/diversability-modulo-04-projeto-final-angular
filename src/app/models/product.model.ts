@@ -1,0 +1,27 @@
+export interface Product {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+  rating: {
+    rate: number;
+    count: number;
+  };
+}
+
+export interface CartItem {
+  product: Product;
+  quantity: number;
+}
+
+export interface CustomerInfo {
+  fullName: string;
+  email: string;
+  phone: string;
+  address: string;
+  cardNumber: string;
+  expiryDate: string;
+  cvv: string;
+}

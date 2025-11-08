@@ -1,0 +1,102 @@
+# Veja a documentação do Angular CLI: https://angular.io/cli
+
+# Dependências
+/node_modules
+/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Arquivos de cache
+/.angular/cache
+.cache/
+
+# Ambiente de desenvolvimento
+/.env
+/.env.local
+/.env.*.local
+
+# Logs
+logs
+*.log
+
+# Arquivos de build
+/dist
+/dist/
+/browser
+/browser/
+/server
+/server/
+/aot
+/aot/
+
+# Configurações do IDE
+/.vscode
+/.idea
+*.swp
+*.swo
+*~
+
+# Arquivos temporários
+/.tmp
+/.temp
+
+# Testes
+/coverage
+/coverage/
+/karma-coverage
+/junit
+
+# Arquivos do sistema operacional
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Arquivos específicos do NgRx
+# (Normalmente não há arquivos específicos do NgRx para ignorar,
+# mas mantemos as convenções padrão do Angular)
+
+# Configurações do ESLint
+/.eslintcache
+
+# Source maps
+*.js.map
+*.css.map
+
+# Arquivos de configuração local
+/src/environments/environment.local.ts
+/src/environments/environment.dev.ts
+
+# Arquivos de storybook (se usado)
+/storybook/dist
+.storybook/*.js
+.storybook/*.ts
+
+# Arquivos do Cypress (se usado)
+/cypress/videos
+/cypress/screenshots
+
+# Arquivos do Firebase (se usado)
+.firebase
+.firebaserc
+
+# Docker (se usado)
+.dockerignore
+Dockerfile
+
+# Arquivos de backup
+*.backup
+*.bak
+
+# Arquivos do Windows
+*.lnk
+
+# Arquivos do npm/yarn
+package-lock.json
+yarn.lock
+# NOTA: Normalmente commitamos package-lock.json ou yarn.lock
+# Descomente a linha acima apenas se não quiser versionar o lock file

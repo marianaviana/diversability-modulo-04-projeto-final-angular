@@ -1,0 +1,146 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <h2 class="text-white mb-4">Finalizar Compra</h2>
+
+      <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+        <div class="card bg-section border-secondary mb-4">
+          <div class="card-header">
+            <h4 class="text-white mb-0">Informações Pessoais</h4>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="fullName" class="form-label text-white">Nome Completo</label>
+                <input type="text"
+                       class="form-control bg-dark text-white border-secondary"
+                       id="fullName"
+                       formControlName="fullName"
+                       [class.is-invalid]="submitted && f['fullName'].errors">
+                <div *ngIf="submitted && f['fullName'].errors" class="invalid-feedback d-block">
+                  <div *ngIf="f['fullName'].errors['required']">Nome é obrigatório</div>
+                  <div *ngIf="f['fullName'].errors['minlength']">Nome deve ter pelo menos 3 caracteres</div>
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label for="email" class="form-label text-white">E-mail</label>
+                <input type="email"
+                       class="form-control bg-dark text-white border-secondary"
+                       id="email"
+                       formControlName="email"
+                       [class.is-invalid]="submitted && f['email'].errors">
+                <div *ngIf="submitted && f['email'].errors" class="invalid-feedback d-block">
+                  <div *ngIf="f['email'].errors['required']">E-mail é obrigatório</div>
+                  <div *ngIf="f['email'].errors['email']">E-mail inválido</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="phone" class="form-label text-white">Telefone</label>
+                <input type="tel"
+                       class="form-control bg-dark text-white border-secondary"
+                       id="phone"
+                       formControlName="phone"
+                       placeholder="(11) 99999-9999"
+                       [class.is-invalid]="submitted && f['phone'].errors">
+                <div *ngIf="submitted && f['phone'].errors" class="invalid-feedback d-block">
+                  <div *ngIf="f['phone'].errors['required']">Telefone é obrigatório</div>
+                  <div *ngIf="f['phone'].errors['invalidPhone']">Formato inválido (use: (11) 99999-9999)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card bg-section border-secondary mb-4">
+          <div class="card-header">
+            <h4 class="text-white mb-0">Endereço de Entrega</h4>
+          </div>
+          <div class="card-body">
+            <div class="mb-3">
+              <label for="address" class="form-label text-white">Endereço Completo</label>
+              <textarea class="form-control bg-dark text-white border-secondary"
+                        id="address"
+                        formControlName="address"
+                        rows="3"
+                        [class.is-invalid]="submitted && f['address'].errors"></textarea>
+              <div *ngIf="submitted && f['address'].errors" class="invalid-feedback d-block">
+                <div *ngIf="f['address'].errors['required']">Endereço é obrigatório</div>
+                <div *ngIf="f['address'].errors['minlength']">Endereço deve ter pelo menos 10 caracteres</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card bg-section border-secondary mb-4">
+          <div class="card-header">
+            <h4 class="text-white mb-0">Informações de Pagamento</h4>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12 mb-3">
+                <label for="cardNumber" class="form-label text-white">Número do Cartão</label>
+                <input type="text"
+                       class="form-control bg-dark text-white border-secondary"
+                       id="cardNumber"
+                       formControlName="cardNumber"
+                       placeholder="0000 0000 0000 0000"
+                       [class.is-invalid]="submitted && f['cardNumber'].errors">
+                <div *ngIf="submitted && f['cardNumber'].errors" class="invalid-feedback d-block">
+                  <div *ngIf="f['cardNumber'].errors['required']">Número do cartão é obrigatório</div>
+                  <div *ngIf="f['cardNumber'].errors['invalidCard']">Número de cartão inválido (16 dígitos)</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="expiryDate" class="form-label text-white">Validade</label>
+                <input type="text"
+                       class="form-control bg-dark text-white border-secondary"
+                       id="expiryDate"
+                       formControlName="expiryDate"
+                       placeholder="MM/AA"
+                       [class.is-invalid]="submitted && f['expiryDate'].errors">
+                <div *ngIf="submitted && f['expiryDate'].errors" class="invalid-feedback d-block">
+                  <div *ngIf="f['expiryDate'].errors['required']">Data de validade é obrigatória</div>
+                  <div *ngIf="f['expiryDate'].errors['invalidExpiry']">Formato inválido (use: MM/AA)</div>
+                  <div *ngIf="f['expiryDate'].errors['expiredCard']">Cartão expirado</div>
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label for="cvv" class="form-label text-white">CVV</label>
+                <input type="text"
+                       class="form-control bg-dark text-white border-secondary"
+                       id="cvv"
+                       formControlName="cvv"
+                       placeholder="123"
+                       maxlength="4"
+                       [class.is-invalid]="submitted && f['cvv'].errors">
+                <div *ngIf="submitted && f['cvv'].errors" class="invalid-feedback d-block">
+                  <div *ngIf="f['cvv'].errors['required']">CVV é obrigatório</div>
+                  <div *ngIf="f['cvv'].errors['minlength']">CVV deve ter 3 ou 4 dígitos</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex gap-3">
+          <button type="button" class="btn btn-outline-secondary" routerLink="/cart">
+            <i class="fas fa-arrow-left me-2"></i>
+            Voltar ao Carrinho
+          </button>
+          <button type="submit" class="btn btn-accent btn-lg flex-grow-1">
+            <i class="fas fa-check me-2"></i>
+            Finalizar Pedido
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<header class="bg-section py-3 border-bottom border-secondary">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <!-- Logo -->
+      <div class="d-flex align-items-center">
+        <a routerLink="/" class="text-decoration-none">
+          <h1 class="h3 mb-0 text-accent fw-bold">AdaStore</h1>
+        </a>
+      </div>
+
+      <!-- Navigation Desktop -->
+      <nav class="d-none d-md-flex align-items-center">
+        <a routerLink="/" class="text-decoration-none text-white me-4 hover-accent">Home</a>
+        <a routerLink="/cart" class="text-decoration-none text-white hover-accent position-relative">
+          <i class="fas fa-shopping-cart me-1"></i>
+          Carrinho
+          <ng-container *ngIf="cartItemsCount$ | async as count">
+            <span *ngIf="count > 0"
+                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-accent">
+              {{ count }}
+            </span>
+          </ng-container>
+        </a>
+      </nav>
+
+      <!-- Mobile Menu -->
+      <div class="d-md-none">
+        <div class="dropdown">
+          <button class="btn btn-outline-accent dropdown-toggle" type="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end bg-section border-secondary">
+            <li>
+              <a class="dropdown-item text-white" routerLink="/">
+                <i class="fas fa-home me-2"></i>Home
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item text-white" routerLink="/cart">
+                <i class="fas fa-shopping-cart me-2"></i>
+                Carrinho
+                <ng-container *ngIf="cartItemsCount$ | async as count">
+                  <span class="badge bg-accent text-dark ms-2">{{ count }}</span>
+                </ng-container>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

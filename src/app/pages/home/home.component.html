@@ -1,0 +1,46 @@
+<section class="hero-section bg-gradient py-5">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-lg-6">
+        <h1 class="display-4 fw-bold text-white mb-4">
+AdaStore        </h1>
+        <p class="lead text-secondary mb-4">
+          Descubra produtos incríveis com os melhores preços.
+          Qualidade e satisfação garantida em cada compra.
+        </p>
+
+      </div>
+      <div class="col-lg-6 text-center">
+        <div class="hero-image mt-4 mt-lg-0">
+          <i class="fas fa-shopping-bag text-accent" style="font-size: 15rem; opacity: 0.3;"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="products-section py-5">
+  <div class="container">
+    <h2 class="text-center text-white mb-5" id="nossos-produtos">Nossos Produtos</h2>
+
+    <div *ngIf="loading" class="text-center py-5">
+      <div class="spinner-border text-accent" role="status">
+        <span class="visually-hidden">Carregando...</span>
+      </div>
+      <p class="text-white mt-3">Carregando produtos...</p>
+    </div>
+
+    <div *ngIf="error && !loading" class="alert alert-danger text-center">
+      {{ error }}
+      <button class="btn btn-accent ms-3" (click)="loadProducts()">
+        Tentar Novamente
+      </button>
+    </div>
+
+    <div *ngIf="!loading && !error" class="row g-4">
+      <div *ngFor="let product of products" class="col-md-6 col-lg-4 col-xl-3">
+        <app-product-card [product]="product"></app-product-card>
+      </div>
+    </div>
+  </div>
+</section>

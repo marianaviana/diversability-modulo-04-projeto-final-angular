@@ -1,0 +1,67 @@
+/* Importações */
+@import 'bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+/* Variáveis de cores */
+:root {
+  --primary-bg: #0f1216;
+  --section-bg: rgb(24, 28, 35);
+  --accent-color: #8ed049;
+  --text-primary: #fff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --gradient-bg: linear-gradient(90deg, rgba(166, 247, 80, 0.2) 0%, rgba(0, 0, 0, 0) 20rem), rgb(24, 28, 35);
+}
+
+/* Estilos globais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Ubuntu", sans-serif;
+  background-color: var(--primary-bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Utilitários */
+.text-accent {
+  color: var(--accent-color) !important;
+}
+
+.bg-section {
+  background-color: var(--section-bg);
+}
+
+.bg-gradient {
+  background: var(--gradient-bg);
+}
+
+.btn-accent {
+  background-color: var(--accent-color);
+  color: var(--primary-bg);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: lighten(#8ed049, 10%);
+    transform: translateY(-2px);
+  }
+
+  &:disabled {
+    background-color: #5a6d4c;
+    cursor: not-allowed;
+  }
+}
